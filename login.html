@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Restricted Access</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #1f1f1f, #2a2a2a);
+      color: #f0f0f0;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    .login-box {
+      background: #2c2c2c;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      width: 320px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 20px;
+      color: #ffcc00;
+      margin-bottom: 15px;
+    }
+    input[type="password"], input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    input[type="submit"] {
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    input[type="submit"]:hover {
+      background-color: #218838;
+    }
+    .error {
+      color: #ff4d4d;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .note {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h1>🚧 Sorry, this page is under development</h1>
+    <div class="note">If you are a developer, please enter the password below:</div>
+    <form onsubmit="checkPassword(event)">
+      <input type="password" id="password" placeholder="Enter Password" required>
+      <input type="submit" value="Enter">
+      <div id="error" class="error"></div>
+    </form>
+  </div>
+
+  <script>
+    const correctPassword = "letmein123"; // <- Change this password
+
+    function checkPassword(event) {
+      event.preventDefault();
+      const entered = document.getElementById("password").value;
+      if (entered === correctPassword) {
+        window.location.href = "main.html"; // <- Change this to your real page
+      } else {
+        document.getElementById("error").textContent = "Wrong password!";
+      }
+    }
+  </script>
+</body>
+</html>
